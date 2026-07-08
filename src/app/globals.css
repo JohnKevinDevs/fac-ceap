@@ -1,26 +1,277 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================
+   FAC — Design tokens (README §4)
+   Fontes: substitutos atuais (Bebas Neue / Graduate / Montserrat).
+   TODO: trocar por Beba Sans (impacto) e College Block (identitário) oficiais.
+   ============================================================ */
+@theme {
+  /* Cores da marca (§4.1) */
+  --color-navy: #001b2a; /* fundo dominante */
+  --color-electric: #0066ff; /* ação / acento */
+  --color-white: #ffffff;
+  --color-silver: #c0c0c0;
+
+  /* Cores de apoio derivadas (§4.2) */
+  --color-navy-dark: #00121d; /* footer */
+  --color-navy-hero: #002a44; /* realce do hero */
+  --color-ice: #f5f7f9; /* fundo claro alternado */
+  --color-placeholder: #dce3e7; /* slots de foto vazios */
+  --color-text-strong: #001b2a; /* títulos sobre claro */
+  --color-text-body: #3a4a55; /* corpo sobre claro */
+  --color-text-2: #5a6b76; /* secundário */
+  --color-text-3: #6b7a85; /* terciário / labels */
+  --color-on-navy: #b8c6cf; /* corpo sobre navy */
+  --color-on-navy-mute: #8ca0ac; /* mudo sobre navy */
+  --color-border-light: #e2e8ec; /* separador em branco */
+  --color-border-mid: #d5dde2; /* separador em cinza-gelo */
+  --color-link-hover: #3384ff;
+
+  /* Famílias tipográficas (§3) — vars injetadas por next/font */
+  --font-bebas: var(--font-bebas-neue), "Bebas Neue", sans-serif; /* TODO: Beba Sans */
+  --font-graduate: var(--font-graduate), "Graduate", serif; /* TODO: College Block */
+  --font-montserrat: var(--font-montserrat), "Montserrat", sans-serif;
+
+  /* Sem cantos arredondados — linguagem angular/atlética (§4.4) */
+  --radius: 0px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================================
+   Base
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--color-navy);
+  color: var(--color-text-body);
+  font-family: var(--font-montserrat);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-electric);
+}
+a:hover {
+  color: var(--color-link-hover);
+}
+
+::selection {
+  background: var(--color-electric);
+  color: #fff;
+}
+
+/* Foco visível e acessível */
+:focus-visible {
+  outline: 2px solid var(--color-electric);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .fac-now-dot {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   Componentes / utilitários (patterns repetidos do protótipo)
+   ============================================================ */
+@layer components {
+  /* Container padrão (§4.4) */
+  .container-fac {
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: clamp(16px, 4vw, 48px);
+  }
+
+  /* --- Escala tipográfica (§4.3) --- */
+  .t-h1 {
+    font-family: var(--font-bebas);
+    font-weight: 400;
+    font-size: clamp(56px, 10vw, 148px);
+    line-height: 0.92;
+    letter-spacing: 1px;
+    text-wrap: balance;
+  }
+  .t-h1-page {
+    font-family: var(--font-bebas);
+    font-weight: 400;
+    font-size: clamp(48px, 8vw, 120px);
+    line-height: 0.93;
+    text-wrap: balance;
+  }
+  .t-h2 {
+    font-family: var(--font-bebas);
+    font-weight: 400;
+    font-size: clamp(40px, 5.6vw, 80px);
+    line-height: 0.95;
+    text-wrap: balance;
+  }
+  .t-h2-lg {
+    font-family: var(--font-bebas);
+    font-weight: 400;
+    font-size: clamp(44px, 7vw, 104px);
+    line-height: 0.93;
+    text-wrap: balance;
+  }
+  .t-card {
+    font-family: var(--font-bebas);
+    font-weight: 400;
+    line-height: 1;
+  }
+  .t-bebas {
+    font-family: var(--font-bebas);
+    font-weight: 400;
+  }
+  .t-graduate {
+    font-family: var(--font-graduate);
+    font-weight: 400;
+  }
+  .t-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+  }
+
+  /* --- Botões --- */
+  .btn-solid {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-navy);
+    background: #fff;
+    text-decoration: none;
+    padding: 15px 28px;
+    transition: background 0.22s ease, color 0.22s ease;
+  }
+  .btn-solid:hover {
+    background: var(--color-electric);
+    color: #fff;
+  }
+  .btn-navy {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--color-navy);
+    text-decoration: none;
+    padding: 15px 28px;
+    transition: background 0.22s ease;
+  }
+  .btn-navy:hover {
+    background: var(--color-electric);
+  }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-navy);
+    border: 1px solid var(--color-navy);
+    text-decoration: none;
+    padding: 14px 28px;
+    transition: border-color 0.22s ease, color 0.22s ease;
+  }
+  .btn-outline:hover {
+    border-color: var(--color-electric);
+    color: var(--color-electric);
+  }
+
+  /* Link com seta e sublinhado azul (usado nas pontes entre páginas) */
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 2px solid var(--color-electric);
+    padding-bottom: 6px;
+    transition: color 0.22s ease;
+  }
+  .link-arrow:hover {
+    color: var(--color-electric);
+  }
+
+  /* Header — hovers de navegação */
+  .nav-link {
+    transition: color 0.22s ease;
+  }
+  .nav-link:hover {
+    color: #fff !important;
+  }
+  .nav-bid {
+    transition: background 0.22s ease, color 0.22s ease;
+  }
+  .nav-bid:hover {
+    background: var(--color-electric) !important;
+  }
+
+  /* Botão grande "Acessar o BID" (capítulo 08 da Home) */
+  .bid-big {
+    transition: background 0.22s ease, color 0.22s ease;
+  }
+  .bid-big:hover {
+    background: var(--color-navy) !important;
+    color: #fff !important;
+  }
+
+  /* Instagram outline (bloco Contato) */
+  .btn-ig-outline {
+    transition: border-color 0.22s ease, color 0.22s ease;
+  }
+  .btn-ig-outline:hover {
+    border-color: var(--color-electric);
+    color: var(--color-electric);
+  }
+
+  /* Links de coluna (footer) */
+  .foot-link {
+    transition: color 0.22s ease;
+    text-decoration: none;
+  }
+  .foot-link:hover {
+    color: #fff;
+  }
+  .foot-link-bid:hover {
+    color: var(--color-electric);
+  }
+}
+
+/* ============================================================
+   Animações (§8) — respeitam prefers-reduced-motion acima
+   ============================================================ */
+@keyframes facPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(0, 102, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 102, 255, 0);
+  }
 }
