@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Site Oficial da FAC — Federação Atlética CEAP
 
-## Getting Started
+Site institucional (V1) da **FAC — Federação Atlética CEAP**, a entidade esportiva e
+cultural do CEAP. Conceito: **"Legado em movimento"** — a tradição está sendo construída
+agora.
 
-First, run the development server:
+**5 páginas + link externo:** Início · Sobre · Projetos · História · Equipe — e **BID ↗**
+(produto irmão, destino externo).
+
+> **Fronteira FAC × BID:** o Site FAC conta a organização (quem é a FAC, propósito, pessoas,
+> história, projetos). O **BID** cuida do esporte (atletas, times, modalidades, resultados).
+> Este site **não** duplica dados esportivos.
+
+## Stack
+
+- **Next.js 16** (App Router) + **TypeScript**
+- **Tailwind CSS v4** — tokens de marca via `@theme` em `src/app/globals.css`
+- **Framer Motion** — apenas reveal on scroll e o pulse da timeline (respeitando
+  `prefers-reduced-motion`)
+
+## Rodar
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # build de produção
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estrutura
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+├── app/                 # rotas (page.tsx por página) + layout + globals.css
+├── components/          # Header, Footer, Reveal, ImageSlot, SectionLabel, Container
+└── content/             # dados estruturados (editar aqui, sem tocar no layout)
+    ├── site.ts          # links institucionais (bidUrl, instagramUrl, contactHref)
+    ├── nav.ts
+    ├── projetos.ts
+    ├── marcos.ts
+    └── equipe.ts
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Para gestões futuras — o que atualizar
 
-## Learn More
+Todo conteúdo repetível vem de `src/content/`. **Não é preciso mexer no layout** para:
 
-To learn more about Next.js, take a look at the following resources:
+- **Links institucionais** → `content/site.ts` (`bidUrl`, `instagramUrl`, `contactHref`).
+  Hoje estão vazios (`''`) e caem em `#` — **preencher antes de publicar**.
+- **Nomes da liderança** → `content/equipe.ts` (placeholders `[ Nome ]`).
+- **Datas da história** → `content/marcos.ts` (placeholders `[DATA]`).
+- **Projetos** → `content/projetos.ts` (novos entram só quando reais e aprovados).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Fotos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Os slots (`ImageSlot`) são placeholders `4:5`/`3:4` com `object-fit: cover` (fundo
+`#DCE3E7`). Basta passar `src` para inserir a foto real — o recorte é mantido, sem barras.
 
-## Deploy on Vercel
+### Fontes — ⚠ substitutos temporários
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+O sistema oficial usa **College Block**, **Beba Sans** e **Montserrat**. Por licença, os
+protótipos e este app usam substitutos do Google Fonts (**Graduate**, **Bebas Neue**,
+Montserrat). Ver `TODO` em `src/app/layout.tsx` e `src/app/globals.css` para trocar pelos
+arquivos oficiais (via `next/font/local`).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Referência de design
+
+O pacote de handoff original (protótipos, docs e standalone) está em `_reference/`
+— referência visual apenas; o app foi recriado do zero.

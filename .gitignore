@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# material de referência do handoff (mantido local, fora do repo)
+/_reference
