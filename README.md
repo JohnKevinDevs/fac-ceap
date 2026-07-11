@@ -8,6 +8,10 @@ Conceito: **Legado em movimento** - a tradicao esta sendo construida agora.
 
 https://fac-ceap.vercel.app
 
+## Screenshot
+
+![FAC CEAP home screen](docs/assets/screenshots/home.png)
+
 ## Overview
 
 | Area | Description |
