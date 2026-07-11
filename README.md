@@ -1,69 +1,101 @@
-# Site Oficial da FAC — Federação Atlética CEAP
+# Site Oficial da FAC - Federacao Atletica CEAP
 
-Site institucional (V1) da **FAC — Federação Atlética CEAP**, a entidade esportiva e
-cultural do CEAP. Conceito: **"Legado em movimento"** — a tradição está sendo construída
-agora.
+Site institucional da **FAC - Federacao Atletica CEAP**, criado para apresentar identidade, historia, equipe, projetos e comunicacao oficial da entidade esportiva e cultural do CEAP.
 
-**5 páginas + link externo:** Início · Sobre · Projetos · História · Equipe — e **BID ↗**
-(produto irmão, destino externo).
+Conceito: **Legado em movimento** - a tradicao esta sendo construida agora.
 
-> **Fronteira FAC × BID:** o Site FAC conta a organização (quem é a FAC, propósito, pessoas,
-> história, projetos). O **BID** cuida do esporte (atletas, times, modalidades, resultados).
-> Este site **não** duplica dados esportivos.
+## Live Demo
+
+https://fac-ceap.vercel.app
+
+## Overview
+
+| Area | Description |
+| --- | --- |
+| Problem | Uma entidade estudantil precisa de comunicacao clara, identidade propria e uma fonte oficial de informacoes. |
+| Solution | Site institucional para explicar quem e a FAC, o que ela constroi, quem lidera e como os projetos se conectam. |
+| Users | Alunos, lideranca estudantil, professores, comunidade CEAP e parceiros. |
+| Focus | Produto institucional, design system, conteudo estruturado e evolucao por gestoes futuras. |
+
+## Escopo
+
+O site conta a organizacao e sua identidade:
+
+- Inicio
+- Sobre
+- Projetos
+- Historia
+- Equipe
+- Link externo para o BID
+
+> Fronteira FAC x BID: o site FAC conta a organizacao, proposito, pessoas, historia e projetos. O BID cuida dos dados esportivos, como atletas, times, modalidades e resultados.
 
 ## Stack
 
-- **Next.js 16** (App Router) + **TypeScript**
-- **Tailwind CSS v4** — tokens de marca via `@theme` em `src/app/globals.css`
-- **Framer Motion** — apenas reveal on scroll e o pulse da timeline (respeitando
-  `prefers-reduced-motion`)
-
-## Rodar
-
-```bash
-npm install
-npm run dev     # http://localhost:3000
-npm run build   # build de produção
-npm run lint
-```
+- Next.js 16 com App Router
+- React
+- TypeScript
+- Tailwind CSS v4
+- Framer Motion
 
 ## Estrutura
 
-```
+```text
 src/
-├── app/                 # rotas (page.tsx por página) + layout + globals.css
-├── components/          # Header, Footer, Reveal, ImageSlot, SectionLabel, Container
-└── content/             # dados estruturados (editar aqui, sem tocar no layout)
-    ├── site.ts          # links institucionais (bidUrl, instagramUrl, contactHref)
-    ├── nav.ts
-    ├── projetos.ts
-    ├── marcos.ts
-    └── equipe.ts
+  app/          rotas, layout e estilos globais
+  components/   Header, Footer, Reveal, ImageSlot, SectionLabel, Container
+  content/      dados editaveis sem mexer no layout
 ```
 
-## Para gestões futuras — o que atualizar
+Conteudos repetiveis ficam em `src/content/`:
 
-Todo conteúdo repetível vem de `src/content/`. **Não é preciso mexer no layout** para:
+```text
+src/content/site.ts      links institucionais
+src/content/nav.ts       navegacao
+src/content/projetos.ts  projetos
+src/content/marcos.ts    linha do tempo
+src/content/equipe.ts    lideranca e equipe
+```
 
-- **Links institucionais** → `content/site.ts` (`bidUrl`, `instagramUrl`, `contactHref`).
-  Hoje estão vazios (`''`) e caem em `#` — **preencher antes de publicar**.
-- **Nomes da liderança** → `content/equipe.ts` (placeholders `[ Nome ]`).
-- **Datas da história** → `content/marcos.ts` (placeholders `[DATA]`).
-- **Projetos** → `content/projetos.ts` (novos entram só quando reais e aprovados).
+## Como Rodar
 
-### Fotos
+```bash
+npm install
+npm run dev
+```
 
-Os slots (`ImageSlot`) são placeholders `4:5`/`3:4` com `object-fit: cover` (fundo
-`#DCE3E7`). Basta passar `src` para inserir a foto real — o recorte é mantido, sem barras.
+Acesse:
 
-### Fontes — ⚠ substitutos temporários
+```text
+http://localhost:3000
+```
 
-O sistema oficial usa **College Block**, **Beba Sans** e **Montserrat**. Por licença, os
-protótipos e este app usam substitutos do Google Fonts (**Graduate**, **Bebas Neue**,
-Montserrat). Ver `TODO` em `src/app/layout.tsx` e `src/app/globals.css` para trocar pelos
-arquivos oficiais (via `next/font/local`).
+Validar build e lint:
 
-## Referência de design
+```bash
+npm run build
+npm run lint
+```
 
-O pacote de handoff original (protótipos, docs e standalone) está em `_reference/`
-— referência visual apenas; o app foi recriado do zero.
+## Para Gestores Futuros
+
+Todo conteudo repetivel foi centralizado em `src/content/`. Isso permite atualizar nomes, links, projetos e marcos sem alterar a estrutura visual do site.
+
+Atualizacoes comuns:
+
+- Links institucionais em `src/content/site.ts`.
+- Nomes da equipe em `src/content/equipe.ts`.
+- Datas e eventos em `src/content/marcos.ts`.
+- Projetos em `src/content/projetos.ts`.
+
+## Notas de Design
+
+- Os slots de imagem usam proporcoes estaveis para facilitar troca futura de fotos.
+- A estrutura separa conteudo e layout para reduzir risco de quebrar a interface.
+- O projeto usa fontes substitutas abertas. Fontes oficiais podem ser adicionadas depois via `next/font/local`.
+
+## Valor de Portfolio
+
+Este projeto demonstra construcao de um produto institucional real: identidade, informacao, navegacao, conteudo editavel e preocupacao com continuidade por futuras gestoes.
+
+Tambem reforca minha atuacao na FAC, conectando lideranca estudantil, comunicacao, organizacao e desenvolvimento web.
