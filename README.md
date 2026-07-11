@@ -1,44 +1,44 @@
-# Site Oficial da FAC - Federacao Atletica CEAP
+# Site Oficial da FAC - Federação Atlética CEAP
 
-Site institucional da **FAC - Federacao Atletica CEAP**, criado para apresentar identidade, historia, equipe, projetos e comunicacao oficial da entidade esportiva e cultural do CEAP.
+Site institucional da **FAC - Federação Atlética CEAP**, criado para apresentar identidade, história, equipe, projetos e comunicação oficial da entidade esportiva e cultural do CEAP.
 
-Conceito: **Legado em movimento** - a tradicao esta sendo construida agora.
+Conceito: **Legado em movimento** - a tradição está sendo construída agora.
 
 ## Live Demo
 
 https://fac-ceap.vercel.app
 
-## Screenshots
+## Capturas de tela
 
 | Home | Projetos |
 | --- | --- |
 | ![FAC CEAP home screen](docs/assets/screenshots/home.png) | ![FAC CEAP projects screen](docs/assets/screenshots/projetos.png) |
 
-| Equipe | Historia |
+| Equipe | História |
 | --- | --- |
 | ![FAC CEAP team screen](docs/assets/screenshots/equipe.png) | ![FAC CEAP history screen](docs/assets/screenshots/historia.png) |
 
 ## Overview
 
-| Area | Description |
+| Área | Description |
 | --- | --- |
-| Problem | Uma entidade estudantil precisa de comunicacao clara, identidade propria e uma fonte oficial de informacoes. |
-| Solution | Site institucional para explicar quem e a FAC, o que ela constroi, quem lidera e como os projetos se conectam. |
-| Users | Alunos, lideranca estudantil, professores, comunidade CEAP e parceiros. |
-| Focus | Produto institucional, design system, conteudo estruturado e evolucao por gestoes futuras. |
+| Problem | Uma entidade estudantil precisa de comunicação clara, identidade própria e uma fonte oficial de informações. |
+| Solution | Site institucional para explicar quem é a FAC, o que ela constrói, quem lidera e como os projetos se conectam. |
+| Users | Alunos, liderança estudantil, professores, comunidade CEAP e parceiros. |
+| Focus | Produto institucional, design system, conteúdo estruturado e evolução por gestões futuras. |
 
 ## Escopo
 
-O site conta a organizacao e sua identidade:
+O site conta a organização e sua identidade:
 
-- Inicio
+- Início
 - Sobre
 - Projetos
-- Historia
+- História
 - Equipe
 - Link externo para o BID
 
-> Fronteira FAC x BID: o site FAC conta a organizacao, proposito, pessoas, historia e projetos. O BID cuida dos dados esportivos, como atletas, times, modalidades e resultados.
+> Fronteira FAC x BID: o site FAC conta a organização, propósito, pessoas, história e projetos. O BID cuida dos dados esportivos, como atletas, times, modalidades e resultados.
 
 ## Stack
 
@@ -54,17 +54,17 @@ O site conta a organizacao e sua identidade:
 src/
   app/          rotas, layout e estilos globais
   components/   Header, Footer, Reveal, ImageSlot, SectionLabel, Container
-  content/      dados editaveis sem mexer no layout
+  content/      dados editáveis sem mexer no layout
 ```
 
-Conteudos repetiveis ficam em `src/content/`:
+Conteúdos repetíveis ficam em `src/content/`:
 
 ```text
 src/content/site.ts      links institucionais
-src/content/nav.ts       navegacao
+src/content/nav.ts       navegação
 src/content/projetos.ts  projetos
 src/content/marcos.ts    linha do tempo
-src/content/equipe.ts    lideranca e equipe
+src/content/equipe.ts    liderança e equipe
 ```
 
 ## Como Rodar
@@ -87,11 +87,11 @@ npm run build
 npm run lint
 ```
 
-## Para Gestores Futuros
+## Para gestores futuros
 
-Todo conteudo repetivel foi centralizado em `src/content/`. Isso permite atualizar nomes, links, projetos e marcos sem alterar a estrutura visual do site.
+Todo conteúdo repetível foi centralizado em `src/content/`. Isso permite atualizar nomes, links, projetos e marcos sem alterar a estrutura visual do site.
 
-Atualizacoes comuns:
+Atualizações comuns:
 
 - Links institucionais em `src/content/site.ts`.
 - Nomes da equipe em `src/content/equipe.ts`.
@@ -100,12 +100,12 @@ Atualizacoes comuns:
 
 ## Notas de Design
 
-- Os slots de imagem usam proporcoes estaveis para facilitar troca futura de fotos.
-- A estrutura separa conteudo e layout para reduzir risco de quebrar a interface.
+- Os slots de imagem usam proporções estáveis para facilitar troca futura de fotos.
+- A estrutura separa conteúdo e layout para reduzir risco de quebrar a interface.
 - O projeto usa fontes substitutas abertas. Fontes oficiais podem ser adicionadas depois via `next/font/local`.
 
-## Valor de Portfolio
+## Valor de portfólio
 
-Este projeto demonstra construcao de um produto institucional real: identidade, informacao, navegacao, conteudo editavel e preocupacao com continuidade por futuras gestoes.
+Este projeto demonstra construção de um produto institucional real: identidade, informação, navegação, conteúdo editável e preocupação com continuidade por futuras gestões.
 
-Tambem reforca minha atuacao na FAC, conectando lideranca estudantil, comunicacao, organizacao e desenvolvimento web.
+Também reforça minha atuação na FAC, conectando liderança estudantil, comunicação, organização e desenvolvimento web.
