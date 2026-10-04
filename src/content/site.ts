@@ -14,7 +14,7 @@ export function href(value: string): string {
   return value.trim() === "" ? "#" : value;
 }
 
-/** Um link externo configurado deve abrir em nova aba com rel seguro. */
+/** Só links http(s) abrem em nova aba; mailto: e rotas internas não. */
 export function isExternal(value: string): boolean {
-  return value.trim() !== "";
+  return /^https?:\/\//i.test(value.trim());
 }

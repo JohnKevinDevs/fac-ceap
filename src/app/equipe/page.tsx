@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/content/seo";
 import Container from "@/components/Container";
 import Reveal from "@/components/Reveal";
 import ImageSlot from "@/components/ImageSlot";
 import { site, href, isExternal } from "@/content/site";
 import { lideranca, diretorias } from "@/content/equipe";
 
-export const metadata: Metadata = {
-  title: "Equipe — FAC · Federação Atlética CEAP",
-  description:
-    "Quem está construindo a FAC agora — estudantes reais que organizam e fazem acontecer.",
-};
+export const metadata: Metadata = pageMetadata(
+  "/equipe",
+  "Equipe",
+  "Quem está construindo a FAC agora: estudantes reais que organizam e fazem acontecer.",
+);
 
 export default function Equipe() {
   const bid = href(site.bidUrl);

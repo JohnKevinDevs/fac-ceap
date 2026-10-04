@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/content/seo";
 import Link from "next/link";
 import Container from "@/components/Container";
 import Reveal from "@/components/Reveal";
 import ImageSlot from "@/components/ImageSlot";
 import { capitulos } from "@/content/marcos";
 
-export const metadata: Metadata = {
-  title: "História — FAC · Federação Atlética CEAP",
-  description:
-    "A história da FAC — construindo tradição desde o começo, registrando o início enquanto ele acontece.",
-};
+export const metadata: Metadata = pageMetadata(
+  "/historia",
+  "História",
+  "A história da FAC: construindo tradição desde o começo, registrando o início enquanto ele acontece.",
+);
 
 const TRILHO = "clamp(24px, 5vw, 44px)";
 const GAP = "clamp(32px, 6vw, 80px)";

@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/content/seo";
 import Link from "next/link";
 import Container from "@/components/Container";
 import Reveal from "@/components/Reveal";
 
-export const metadata: Metadata = {
-  title: "Sobre — FAC · Federação Atlética CEAP",
-  description:
-    "Sobre a FAC — a entidade esportiva e cultural do CEAP: missão, visão, valores e como a organização se estrutura.",
-};
+export const metadata: Metadata = pageMetadata(
+  "/sobre",
+  "Sobre",
+  "Sobre a FAC, a entidade esportiva e cultural do CEAP: missão, visão, valores e como a organização se estrutura.",
+);
 
 const razoes = [
   { num: "01", title: "Fortalecer a cultura estudantil", desc: "Fortalecer a cultura estudantil interna do CEAP." },

@@ -92,9 +92,13 @@ export default function Footer() {
               alignItems: "center",
             }}
           >
-            <a href={contact} {...externalProps(site.contactHref)} className="btn-solid">
-              Falar com a FAC
-            </a>
+            {/* Instagram e contato só aparecem quando a URL estiver em content/site.ts */}
+            {site.contactHref && (
+              <a href={contact} {...externalProps(site.contactHref)} className="btn-solid">
+                Falar com a FAC
+              </a>
+            )}
+            {site.instagramUrl && (
             <a
               href={instagram}
               {...externalProps(site.instagramUrl)}
@@ -115,6 +119,12 @@ export default function Footer() {
             >
               Instagram ↗
             </a>
+            )}
+            {!site.contactHref && !site.instagramUrl && (
+              <Link href="/sobre" className="btn-solid">
+                Conheça a FAC
+              </Link>
+            )}
           </div>
         </div>
       </section>
@@ -204,22 +214,26 @@ export default function Footer() {
                 >
                   Conectar
                 </span>
-                <a
-                  href={instagram}
-                  {...externalProps(site.instagramUrl)}
-                  className="foot-link"
-                  style={footLinkStyle}
-                >
-                  Instagram
-                </a>
-                <a
-                  href={contact}
-                  {...externalProps(site.contactHref)}
-                  className="foot-link"
-                  style={footLinkStyle}
-                >
-                  Contato
-                </a>
+                {site.instagramUrl && (
+                  <a
+                    href={instagram}
+                    {...externalProps(site.instagramUrl)}
+                    className="foot-link"
+                    style={footLinkStyle}
+                  >
+                    Instagram
+                  </a>
+                )}
+                {site.contactHref && (
+                  <a
+                    href={contact}
+                    {...externalProps(site.contactHref)}
+                    className="foot-link"
+                    style={footLinkStyle}
+                  >
+                    Contato
+                  </a>
+                )}
                 <a
                   href={bid}
                   {...externalProps(site.bidUrl)}

@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/content/seo";
 import Container from "@/components/Container";
 import Reveal from "@/components/Reveal";
 import ImageSlot from "@/components/ImageSlot";
 import { site, href, isExternal } from "@/content/site";
 import { projetoDestaque, projetosEmAndamento } from "@/content/projetos";
 
-export const metadata: Metadata = {
-  title: "Projetos — FAC · Federação Atlética CEAP",
-  description:
-    "O que a FAC constrói: iniciativas reais como a Copa CEAP e o BID.",
-};
+export const metadata: Metadata = pageMetadata(
+  "/projetos",
+  "Projetos",
+  "O que a FAC constrói: iniciativas reais como a Copa CEAP e o BID.",
+);
 
 export default function Projetos() {
   const bid = href(site.bidUrl);

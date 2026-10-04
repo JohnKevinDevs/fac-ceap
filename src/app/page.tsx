@@ -5,6 +5,13 @@ import SectionLabel from "@/components/SectionLabel";
 import ImageSlot from "@/components/ImageSlot";
 import { site, href, isExternal } from "@/content/site";
 import { homeMarcos } from "@/content/marcos";
+import type { Metadata } from "next";
+import { sharedOpenGraph, siteDescription, siteName } from "@/content/seo";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  openGraph: { ...sharedOpenGraph, title: siteName, description: siteDescription, url: "/" },
+};
 
 // Home — narrativa em 9 capítulos (README §6.1).
 const indice = [

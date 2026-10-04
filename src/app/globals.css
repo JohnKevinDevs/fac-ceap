@@ -2,8 +2,8 @@
 
 /* ============================================================
    FAC — Design tokens (README §4)
-   Fontes: substitutos atuais (Bebas Neue / Graduate / Montserrat).
-   TODO: trocar por Beba Sans (impacto) e College Block (identitário) oficiais.
+   Fontes: Bebas Neue e Montserrat são as oficiais. Graduate substitui a College
+   Block (identitária) até o arquivo oficial existir.
    ============================================================ */
 @theme {
   /* Cores da marca (§4.1) */
@@ -28,7 +28,7 @@
   --color-link-hover: #3384ff;
 
   /* Famílias tipográficas (§3) — vars injetadas por next/font */
-  --font-bebas: var(--font-bebas-neue), "Bebas Neue", sans-serif; /* TODO: Beba Sans */
+  --font-bebas: var(--font-bebas-neue), "Bebas Neue", sans-serif;
   --font-graduate: var(--font-graduate), "Graduate", serif; /* TODO: College Block */
   --font-montserrat: var(--font-montserrat), "Montserrat", sans-serif;
 
