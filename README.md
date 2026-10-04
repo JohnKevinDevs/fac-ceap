@@ -97,12 +97,18 @@ Atualizações comuns:
 - Nomes da equipe em `src/content/equipe.ts`.
 - Datas e eventos em `src/content/marcos.ts`.
 - Projetos em `src/content/projetos.ts`.
+- Título, descrição e imagem de compartilhamento de cada página em `src/content/seo.ts`.
+
+Pendências de conteúdo:
+
+- Instagram e contato ficam em `src/content/site.ts`. Enquanto estiverem vazios, os botões não aparecem.
+- Em domínio próprio, defina `NEXT_PUBLIC_SITE_URL`. Na Vercel, sem a variável, o Next usa o endereço de produção do projeto.
 
 ## Notas de Design
 
 - Os slots de imagem usam proporções estáveis para facilitar troca futura de fotos.
 - A estrutura separa conteúdo e layout para reduzir risco de quebrar a interface.
-- O projeto usa fontes substitutas abertas. Fontes oficiais podem ser adicionadas depois via `next/font/local`.
+- Bebas Neue e Montserrat são as fontes oficiais da FAC ("Beba Sans" em documentos antigos é a mesma Bebas Neue). Só a Graduate é substituta, da College Block; o arquivo oficial pode entrar depois via `next/font/local`.
 
 ## Valor de portfólio
 
