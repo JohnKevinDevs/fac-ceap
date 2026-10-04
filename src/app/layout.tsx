@@ -30,11 +30,13 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: { default: siteName, template: `%s | ${siteName}` },
   description: siteDescription,
-  // Domínio oficial ainda não definido. Defina NEXT_PUBLIC_SITE_URL ao publicar; na
-  // Vercel, sem a variável, o Next usa o endereço de produção do projeto.
+  // Domínio oficial ainda não definido. NEXT_PUBLIC_SITE_URL vence; sem ela, usa o
+  // endereço de produção da Vercel (sem isso o canonical saía relativo).
   metadataBase: process.env.NEXT_PUBLIC_SITE_URL
     ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
-    : undefined,
+    : process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? new URL(`https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`)
+      : undefined,
   openGraph: { ...sharedOpenGraph, title: siteName, description: siteDescription },
   twitter: { card: "summary_large_image", title: siteName, description: siteDescription },
   // Ícones e imagem de compartilhamento vêm de favicon.ico, icon.png, apple-icon.png,
