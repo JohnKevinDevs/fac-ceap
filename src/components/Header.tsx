@@ -8,25 +8,32 @@ import { navItems, activeKey } from "@/content/nav";
 import { site, href, isExternal } from "@/content/site";
 
 // Header sticky (README §5.1). Desktop >=880px: nav inline. Mobile <880px:
-// menu hambúrguer com estado real (useState) — barras animam para "X",
-// fecha ao clicar em link.
+// menu hambúrguer; as barras animam para "X" e o menu fecha ao clicar em link,
+// com Esc ou ao passar para desktop. Qual menu aparece é decidido por CSS
+// (.only-desktop / .only-mobile em globals.css) para o HTML do servidor já sair
+// certo no celular.
 export default function Header() {
   const pathname = usePathname();
   const active = activeKey(pathname);
 
-  const [isMobile, setIsMobile] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 880px)");
-    const update = () => {
-      setIsMobile(mq.matches);
-      if (!mq.matches) setMenuOpen(false);
+    if (!menuOpen) return;
+    const desktop = window.matchMedia("(min-width: 880px)");
+    const onDesktop = (e: MediaQueryListEvent) => {
+      if (e.matches) setMenuOpen(false);
     };
-    update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
-  }, []);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    desktop.addEventListener("change", onDesktop);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      desktop.removeEventListener("change", onDesktop);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [menuOpen]);
 
   const bid = href(site.bidUrl);
   const bidExternal = isExternal(site.bidUrl);
@@ -68,11 +75,11 @@ export default function Header() {
         >
           <Image
             src="/fac-logo.png"
-            alt="Escudo da FAC"
+            alt=""
             width={45}
             height={42}
             style={{ display: "block", flexShrink: 0 }}
-            priority
+            loading="eager"
           />
           <span
             className="t-graduate"
@@ -94,11 +101,10 @@ export default function Header() {
         </Link>
 
         {/* Nav desktop */}
-        {!isMobile && (
-          <nav
+        <nav
             aria-label="Navegação principal"
+            className="only-desktop"
             style={{
-              display: "flex",
               alignItems: "center",
               gap: "clamp(14px, 2.2vw, 30px)",
             }}
@@ -146,18 +152,16 @@ export default function Header() {
               BID ↗
             </a>
           </nav>
-        )}
 
         {/* Botão hambúrguer mobile */}
-        {isMobile && (
-          <button
+        <button
             type="button"
+            className="only-mobile"
             aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={menuOpen}
             aria-controls="menu-mobile"
             onClick={() => setMenuOpen((o) => !o)}
             style={{
-              display: "flex",
               flexDirection: "column",
               justifyContent: "center",
               gap: 5,
@@ -200,21 +204,19 @@ export default function Header() {
               }}
             />
           </button>
-        )}
       </div>
 
       {/* Painel mobile */}
-      {isMobile && menuOpen && (
+      {menuOpen && (
         <nav
           id="menu-mobile"
-          aria-label="Navegação principal"
-          className="container-fac"
+          aria-label="Navegação principal (celular)"
+          className="container-fac only-mobile"
           style={{
             background: "var(--color-navy)",
             borderTop: "1px solid rgba(192,192,192,0.15)",
             paddingTop: 12,
             paddingBottom: 28,
-            display: "flex",
             flexDirection: "column",
           }}
         >

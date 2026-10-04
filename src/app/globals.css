@@ -69,6 +69,23 @@ a:hover {
   outline-offset: 3px;
 }
 
+/* Header: qual navegação aparece é decidido aqui, não por JS (o HTML do servidor
+   já sai certo no celular). 880px é desktop (README §5.1). */
+.only-desktop {
+  display: flex;
+}
+.only-mobile {
+  display: none;
+}
+@media (max-width: 879.98px) {
+  .only-desktop {
+    display: none;
+  }
+  .only-mobile {
+    display: flex;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
