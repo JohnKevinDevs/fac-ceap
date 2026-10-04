@@ -57,9 +57,12 @@ export default function RootLayout({
       className={`${bebasNeue.variable} ${graduate.variable} ${montserrat.variable} antialiased`}
     >
       <body>
+        <a href="#conteudo" className="skip-link">
+          Pular para o conteúdo
+        </a>
         <MotionProvider>
           <Header />
-          <main>{children}</main>
+          <main id="conteudo">{children}</main>
           <Footer />
         </MotionProvider>
       </body>

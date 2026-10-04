@@ -93,7 +93,7 @@ export default function Projetos() {
                 }}
               >
                 <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                  <span className="t-graduate" style={{ fontSize: 13, letterSpacing: "2px", color: "var(--color-silver)" }}>{p.num}</span>
+                  <span className="t-graduate" style={{ fontSize: 13, letterSpacing: "2px", color: "var(--color-text-3)" }}>{p.num}</span>
                   <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "1.8px", textTransform: "uppercase", color: "#0066FF" }}>{p.status}</span>
                 </div>
                 <div>

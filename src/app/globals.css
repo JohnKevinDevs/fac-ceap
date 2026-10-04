@@ -63,10 +63,30 @@ a:hover {
   color: #fff;
 }
 
+/* Link "Pular para o conteúdo": invisível até receber foco pelo teclado */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 100;
+  padding: 12px 18px;
+  background: #fff;
+  color: var(--color-navy);
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 12px;
+}
+
 /* Foco visível e acessível */
 :focus-visible {
   outline: 2px solid var(--color-electric);
   outline-offset: 3px;
+}
+/* Na seção azul o contorno azul some (1:1): usa branco */
+.on-blue :focus-visible {
+  outline-color: #fff;
 }
 
 /* Header: qual navegação aparece é decidido aqui, não por JS (o HTML do servidor

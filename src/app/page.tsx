@@ -296,7 +296,7 @@ export default function Home() {
             </div>
             <Reveal style={{ display: "flex", flexWrap: "wrap", gap: 14 }}>
               <ImageSlot label="FOTO — equipe em ação" ratio="4/5" />
-              <p style={{ margin: 0, fontSize: 11, letterSpacing: "1.6px", textTransform: "uppercase", color: "var(--color-on-navy-mute)" }}>
+              <p style={{ margin: 0, fontSize: 11, letterSpacing: "1.6px", textTransform: "uppercase", color: "var(--color-text-2)" }}>
                 Equipe FAC em contexto real — reunião, montagem ou bastidores
               </p>
             </Reveal>
@@ -321,7 +321,7 @@ export default function Home() {
           <Reveal style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", borderTop: "2px solid var(--color-text-strong)" }}>
             {homeMarcos.map((m) => (
               <div key={m.titulo} style={{ padding: "24px clamp(12px, 2vw, 28px) 24px 0", borderRight: "1px solid var(--color-border-mid)" }}>
-                <span className="t-graduate" style={{ display: "block", fontSize: 13, letterSpacing: "2px", color: m.destaque ? "var(--color-on-navy-mute)" : "#0066FF", marginBottom: 12 }}>
+                <span className="t-graduate" style={{ display: "block", fontSize: 13, letterSpacing: "2px", color: m.destaque ? "var(--color-text-2)" : "#0066FF", marginBottom: 12 }}>
                   {m.quando}
                 </span>
                 <span className="t-bebas" style={{ display: "block", fontSize: 26, lineHeight: 1, color: "var(--color-text-strong)", marginBottom: 8 }}>
@@ -342,7 +342,7 @@ export default function Home() {
       </section>
 
       {/* ============ CAP 08 — PONTE PARA O BID ============ */}
-      <section style={{ background: "#0066FF", padding: "clamp(72px, 12vh, 130px) 0" }}>
+      <section className="on-blue" style={{ background: "#0066FF", padding: "clamp(72px, 12vh, 130px) 0" }}>
         <Container style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "clamp(32px, 5vw, 80px)", alignItems: "center" }}>
           <div>
             <Reveal>
@@ -366,7 +366,7 @@ export default function Home() {
             >
               Acessar o BID <span aria-hidden="true" style={{ fontSize: "0.8em" }}>↗</span>
             </a>
-            <span style={{ fontSize: 12, letterSpacing: "1.4px", textTransform: "uppercase", color: "rgba(255,255,255,0.7)" }}>
+            <span style={{ fontSize: 12, letterSpacing: "1.4px", textTransform: "uppercase", color: "#fff" }}>
               Atletas · Times · Modalidades · Resultados
             </span>
           </Reveal>

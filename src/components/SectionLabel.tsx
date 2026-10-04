@@ -10,11 +10,11 @@ const TONES: Record<
   onLight: {
     num: "#0066FF",
     line: "#C0C0C0",
-    label: "#6B7A85",
+    label: "#5A6B76", // #6B7A85 dava 4,1:1 no fundo gelo
     bar: "#0066FF",
   },
   onNavy: {
-    num: "#0066FF",
+    num: "#2DA8FF", // #0066FF em texto pequeno sobre navy dava 3,65:1
     line: "rgba(192,192,192,0.4)",
     label: "#8CA0AC",
     bar: "#0066FF",
@@ -22,7 +22,7 @@ const TONES: Record<
   onBlue: {
     num: "#fff",
     line: "rgba(255,255,255,0.5)",
-    label: "rgba(255,255,255,0.8)",
+    label: "#fff",
     bar: "#fff",
   },
 };

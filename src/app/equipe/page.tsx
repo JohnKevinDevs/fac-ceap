@@ -101,7 +101,7 @@ export default function Equipe() {
               </Reveal>
             ))}
           </div>
-          <Reveal as="p" style={{ margin: "40px 0 0", fontSize: 13, lineHeight: 1.7, color: "var(--color-on-navy-mute)", maxWidth: "68ch" }}>
+          <Reveal as="p" style={{ margin: "40px 0 0", fontSize: 13, lineHeight: 1.7, color: "var(--color-text-2)", maxWidth: "68ch" }}>
             Apoiam a estrutura o{" "}
             <strong style={{ color: "var(--color-text-2)" }}>Conselho Estratégico</strong>{" "}
             (consultivo) e os{" "}

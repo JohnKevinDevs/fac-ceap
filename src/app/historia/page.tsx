@@ -71,7 +71,7 @@ export default function Historia() {
                   {c.slotId && c.slotLabel && (
                     <Reveal as="figure" style={{ margin: 0 }}>
                       <ImageSlot label={c.slotLabel} ratio="4/5" className="max-w-[480px]" />
-                      <figcaption style={{ fontSize: 11, letterSpacing: "1.6px", textTransform: "uppercase", color: "var(--color-on-navy-mute)", marginTop: 10 }}>
+                      <figcaption style={{ fontSize: 11, letterSpacing: "1.6px", textTransform: "uppercase", color: "var(--color-text-2)", marginTop: 10 }}>
                         {c.legenda}
                       </figcaption>
                     </Reveal>
