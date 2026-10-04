@@ -93,6 +93,9 @@ export default function Equipe() {
                 <span className="t-graduate" style={{ fontSize: "clamp(20px, 2.6vw, 32px)", color: "#0066FF" }}>{d.num}</span>
                 <div>
                   <h3 className="t-bebas" style={{ margin: "0 0 8px", fontSize: "clamp(26px, 3.4vw, 44px)", lineHeight: 0.98, color: "var(--color-text-strong)" }}>{d.titulo}</h3>
+                  {d.responsavel && (
+                    <p style={{ margin: "0 0 8px", fontSize: 12, fontWeight: 700, letterSpacing: "1.6px", textTransform: "uppercase", color: "var(--color-text-strong)" }}>{d.responsavel}</p>
+                  )}
                   <p style={{ margin: 0, fontSize: 14.5, lineHeight: 1.7, color: "var(--color-text-2)", maxWidth: "70ch" }}>{d.descricao}</p>
                 </div>
               </Reveal>
@@ -123,7 +126,7 @@ export default function Equipe() {
           <Reveal as="figure" style={{ margin: 0 }}>
             <ImageSlot label="FOTO — equipe completa em contexto real (montagem, reunião, dia de jogo)" ratio="4/5" />
             <figcaption style={{ fontSize: 11, letterSpacing: "1.6px", textTransform: "uppercase", color: "var(--color-on-navy-mute)", marginTop: 10 }}>
-              A gestão atual — Junho de 2026
+              Gestão 2026
             </figcaption>
           </Reveal>
         </Container>

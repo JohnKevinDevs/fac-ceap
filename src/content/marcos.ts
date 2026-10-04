@@ -1,4 +1,4 @@
-// Marcos históricos (README §6.4 / §9). Datas [DATA] são placeholders a confirmar.
+// Marcos históricos (README §6.4 / §9). Datas vêm dos documentos da FAC; [DATA] = a confirmar.
 export type Marco = {
   quando: string; // "[DATA]" | "HOJE · 2026"
   titulo: string;
@@ -12,7 +12,7 @@ export type Marco = {
 /** Capítulos da linha do tempo — página História. */
 export const capitulos: Marco[] = [
   {
-    quando: "[DATA]",
+    quando: "ABR · 2026",
     titulo: "A origem",
     descricao:
       "A ideia de uma entidade esportiva e cultural para o CEAP ganha forma: canalizar a energia dos alunos em algo organizado, contínuo e com identidade própria.",
@@ -21,13 +21,13 @@ export const capitulos: Marco[] = [
     legenda: "[ Legenda e crédito do registro ]",
   },
   {
-    quando: "[DATA]",
+    quando: "MAI · 2026",
     titulo: "A estruturação",
     descricao:
       "Primeiras decisões: nome, escudo, identidade, estrutura e as pessoas que toparam construir. A FAC deixa de ser ideia e vira organização.",
   },
   {
-    quando: "[DATA]",
+    quando: "15–19 JUN · 2026",
     titulo: "Copa CEAP — a primeira prova",
     descricao:
       "A primeira grande atuação prática. Organização, jogos, torcida e bastidores: foi aqui que a FAC transformou ideia em ação diante de toda a comunidade.",
@@ -39,7 +39,7 @@ export const capitulos: Marco[] = [
     quando: "[DATA]",
     titulo: "BID — o esporte ganha casa",
     descricao:
-      "Nasce o Banco de Informações Desportivas: o espaço próprio para atletas, times, modalidades e resultados. A memória esportiva do CEAP passa a ser registrada.",
+      "Nasce o Banco de Informações Desportivas: o espaço próprio para atletas, times, modalidades e regulamentos. A memória esportiva do CEAP passa a ser registrada.",
   },
 ];
 
@@ -62,18 +62,18 @@ export type MiniMarco = {
 
 export const homeMarcos: MiniMarco[] = [
   {
-    quando: "[DATA]",
+    quando: "ABR · 2026",
     titulo: "Origem",
     descricao:
       "A ideia de uma entidade esportiva e cultural para o CEAP ganha forma.",
   },
   {
-    quando: "[DATA]",
+    quando: "MAI · 2026",
     titulo: "Estruturação",
     descricao: "Primeiras decisões, identidade e organização da FAC.",
   },
   {
-    quando: "[DATA]",
+    quando: "JUN · 2026",
     titulo: "Copa CEAP",
     descricao: "A primeira grande atuação prática: ideia vira ação.",
   },

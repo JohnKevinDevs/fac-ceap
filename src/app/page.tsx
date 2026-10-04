@@ -249,9 +249,8 @@ export default function Home() {
                 O que estamos construindo agora.
               </Reveal>
               <Reveal as="p" style={{ margin: "0 0 28px", fontSize: "clamp(15px, 1.4vw, 18px)", lineHeight: 1.7, color: "var(--color-text-body)", maxWidth: "50ch" }}>
-                Isso não acabou quando a Copa terminou. A FAC segue em movimento —
-                estruturando a organização, a identidade e o esporte para durar
-                além de uma única gestão.
+                A FAC segue em movimento, estruturando a organização, a identidade
+                e o esporte para durar além de uma única gestão.
               </Reveal>
               <Reveal>
                 <Link href="/projetos" className="link-arrow" style={{ color: "var(--color-text-strong)" }}>
