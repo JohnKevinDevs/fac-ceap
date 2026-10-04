@@ -6,6 +6,7 @@ import { Bebas_Neue, Graduate, Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import MotionProvider from "@/components/MotionProvider";
 
 const bebasNeue = Bebas_Neue({
   variable: "--font-bebas-neue",
@@ -58,9 +59,11 @@ export default function RootLayout({
       className={`${bebasNeue.variable} ${graduate.variable} ${montserrat.variable} antialiased`}
     >
       <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <MotionProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );

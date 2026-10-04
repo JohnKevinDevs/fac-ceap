@@ -1,7 +1,7 @@
 "use client";
 
 import type { CSSProperties, ReactNode } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 // Tags suportadas pelo Reveal (mapeadas p/ componentes motion no escopo do módulo).
 const MOTION = {
@@ -23,7 +23,10 @@ type Tag = keyof typeof MOTION;
 /**
  * Reveal on scroll (README §8): opacity 0→1 + translateY(18px)→0, .7s ease,
  * disparado uma vez ao entrar na viewport (~12% visível).
- * Respeita prefers-reduced-motion — renderiza estático, mantendo estilos.
+ * prefers-reduced-motion é tratado pelo <MotionConfig reducedMotion="user"> no
+ * layout (MotionProvider). Não trocar o elemento aqui: o servidor não sabe a
+ * preferência, e um elemento diferente no cliente deixava o opacity:0 do SSR
+ * preso na tela (conteúdo invisível para quem reduz movimento).
  */
 export default function Reveal({
   children,
@@ -38,17 +41,6 @@ export default function Reveal({
   style?: CSSProperties;
   delay?: number;
 }) {
-  const reduced = useReducedMotion();
-
-  if (reduced) {
-    const Tag = as;
-    return (
-      <Tag className={className} style={style}>
-        {children}
-      </Tag>
-    );
-  }
-
   const MotionTag = MOTION[as];
   return (
     <MotionTag
